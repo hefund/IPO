@@ -3,299 +3,141 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HEFUND IPO | Strategic Capital Solutions</title>
+    <title>港股 Pre-IPO 内控诊断服务 | HEFUND</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 
     <style>
-        /* =========================================
-           麦肯锡风格核心 CSS (The McKinsey Look)
-           ========================================= */
-        
         :root {
-            --mck-navy: #051C2C;       /* 深海军蓝 - 权威背景 */
-            --mck-blue: #00A9E0;       /* 亮蓝 - 强调色/按钮 */
-            --mck-gray: #F5F5F5;       /* 浅灰 - 区块分隔 */
-            --mck-text: #333333;       /* 正文黑 */
-            --mck-text-light: #666666; /* 辅助文字 */
+            --mck-navy: #051C2C;
+            --mck-blue: #00A9E0;
+            --mck-gray: #F8F9FA;
+            --mck-border: #E5E5E5;
         }
 
         body {
-            font-family: 'Lato', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-            color: var(--mck-text);
-            line-height: 1.8; /* 增大行高，增加呼吸感 */
-            background-color: #fff;
-            -webkit-font-smoothing: antialiased; /* 字体抗锯齿，显得更细致 */
-        }
-
-        /* 标题体系：衬线体是灵魂 */
-        h1, h2, h3, h4, h5, h6 {
-            font-family: 'Playfair Display', Georgia, "Times New Roman", serif;
-            color: var(--mck-navy);
-            font-weight: 700;
-            letter-spacing: -0.5px;
-        }
-
-        a {
-            text-decoration: none;
-            color: var(--mck-navy);
-            transition: color 0.3s;
-        }
-
-        a:hover {
-            color: var(--mck-blue);
-        }
-
-        /* --- 导航栏 --- */
-        .navbar {
-            background-color: #fff;
-            padding: 1.2rem 0;
-            border-bottom: 1px solid rgba(0,0,0,0.05);
-            box-shadow: 0 2px 10px rgba(0,0,0,0.02);
-        }
-
-        .navbar-brand {
-            font-family: 'Playfair Display', serif;
-            font-weight: 700;
-            font-size: 1.5rem;
-            color: var(--mck-navy);
-            letter-spacing: 1px;
-        }
-
-        .nav-link {
             font-family: 'Lato', sans-serif;
-            font-weight: 700;
-            font-size: 0.9rem;
-            color: var(--mck-navy) !important;
-            margin-left: 20px;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
+            color: #333;
+            line-height: 1.8;
+            -webkit-font-smoothing: antialiased;
         }
 
-        /* --- Hero Section (首屏) --- */
-        .hero-section {
-            position: relative;
-            background: linear-gradient(rgba(5, 28, 44, 0.85), rgba(5, 28, 44, 0.7)), 
-                        url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80'); /* 高端建筑图 */
+        h1, h2, h3 { font-family: 'Playfair Display', serif; color: var(--mck-navy); font-weight: 700; }
+
+        /* --- Hero Section --- */
+        .hero-banner {
+            background: linear-gradient(rgba(5, 28, 44, 0.9), rgba(5, 28, 44, 0.8)), 
+                        url('https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=1600&q=80');
             background-size: cover;
-            background-position: center;
-            height: 85vh; /* 占据85%视口高度 */
-            display: flex;
-            align-items: center;
+            padding: 120px 0;
             color: white;
+            border-bottom: 5px solid var(--mck-blue);
         }
 
-        .hero-content h1 {
-            color: white;
-            font-size: 3.5rem;
-            margin-bottom: 1.5rem;
-            line-height: 1.1;
-        }
+        /* --- Section Styling --- */
+        .section-padding { padding: 80px 0; }
+        .bg-light-gray { background-color: var(--mck-gray); }
+        .section-title { font-size: 2.5rem; margin-bottom: 30px; position: relative; }
+        .section-title::after { content: ""; display: block; width: 50px; height: 3px; background: var(--mck-blue); margin-top: 15px; }
 
-        .hero-content p {
-            font-size: 1.25rem;
-            color: rgba(255,255,255,0.9);
-            font-weight: 300;
-            max-width: 600px;
-            margin-bottom: 2.5rem;
-        }
-
-        /* 按钮风格：极简线条或纯色 */
-        .btn-mck {
-            background-color: transparent;
-            border: 2px solid white;
-            color: white;
-            padding: 12px 35px;
-            font-weight: 700;
-            text-transform: uppercase;
-            font-size: 0.85rem;
-            letter-spacing: 1px;
-            border-radius: 0; /* 直角显得更严谨 */
+        /* --- 业务循环卡片 --- */
+        .cycle-card {
+            background: #fff;
+            border: 1px solid var(--mck-border);
+            padding: 30px;
+            height: 100%;
             transition: all 0.3s ease;
         }
-
-        .btn-mck:hover {
-            background-color: white;
-            color: var(--mck-navy);
+        .cycle-card:hover {
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            border-color: var(--mck-blue);
         }
+        .cycle-icon { color: var(--mck-blue); font-size: 1.5rem; margin-bottom: 15px; }
 
-        .btn-mck-blue {
-            background-color: var(--mck-blue);
-            border: 2px solid var(--mck-blue);
+        /* --- 执行阶段步骤条 --- */
+        .step-box {
+            border-left: 3px solid var(--mck-blue);
+            padding-left: 30px;
+            margin-bottom: 40px;
+            position: relative;
+        }
+        .step-number {
+            position: absolute;
+            left: -15px;
+            top: 0;
+            background: var(--mck-blue);
             color: white;
-        }
-        
-        .btn-mck-blue:hover {
-            background-color: var(--mck-navy);
-            border-color: var(--mck-navy);
-        }
-
-        /* --- Insights / Articles 卡片 --- */
-        .section-padding {
-            padding: 80px 0;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 30px;
+            font-weight: bold;
         }
 
-        .feature-card {
-            background: #fff;
-            padding: 40px;
-            height: 100%;
-            border: none;
-            /* 极其微弱的阴影，制造悬浮感 */
-            box-shadow: 0 5px 30px rgba(0,0,0,0.05); 
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        /* --- 报价表格 --- */
+        .pricing-table {
+            border-collapse: separate;
+            border-spacing: 0 10px;
         }
+        .pricing-table thead th { background-color: var(--mck-navy); color: white; border: none; padding: 15px; }
+        .pricing-table tbody tr { background: white; box-shadow: 0 2px 5px rgba(0,0,0,0.05); }
+        .pricing-table td { padding: 20px; vertical-align: middle; border: none; }
 
-        .feature-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
-        }
-
-        .feature-icon {
-            font-size: 2rem;
-            color: var(--mck-blue);
-            margin-bottom: 20px;
-        }
-
-        .section-title {
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-        }
-
-        .divider {
-            height: 3px;
-            width: 60px;
-            background-color: var(--mck-blue);
-            margin-bottom: 30px;
-        }
-
-        /* --- 数据展示区 --- */
-        .stats-section {
-            background-color: var(--mck-navy);
-            color: white;
-            padding: 100px 0;
-        }
-
-        .stat-number {
-            font-family: 'Playfair Display', serif;
-            font-size: 4rem;
-            font-weight: 400; /* 数字细一点更高级 */
-            color: var(--mck-blue);
-            line-height: 1;
-            margin-bottom: 10px;
-        }
-
-        .stat-label {
-            font-family: 'Lato', sans-serif;
-            font-size: 1rem;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            opacity: 0.8;
-        }
-
-        /* --- Footer --- */
-        footer {
-            background-color: #03121d; /* 比Navy更深一点 */
-            color: rgba(255,255,255,0.6);
-            padding: 60px 0 30px;
-            font-size: 0.9rem;
-        }
-        
-        footer h5 {
-            color: white;
-            margin-bottom: 20px;
-            font-size: 1.1rem;
-        }
-
-        footer ul li {
-            margin-bottom: 10px;
-        }
-        
-        footer a {
-            color: rgba(255,255,255,0.6);
-        }
-        
-        footer a:hover {
-            color: white;
-        }
-
+        /* --- 交付物图标 --- */
+        .deliverable-item { display: flex; align-items: flex-start; margin-bottom: 20px; }
+        .deliverable-item i { color: var(--mck-blue); margin-right: 15px; margin-top: 5px; }
     </style>
 </head>
 <body>
 
-    <nav class="navbar navbar-expand-lg sticky-top">
+    <header class="hero-banner">
         <div class="container">
-            <a class="navbar-brand" href="#">HEFUND<span style="color:var(--mck-blue)">.</span>IPO</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
-                <ul class="navbar-nav">
-                    <li class="nav-item"><a class="nav-link" href="#expertise">Expertise</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#insights">Insights</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#impact">Impact</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#careers">Careers</a></li>
-                </ul>
-            </div>
-        </div>
-    </nav>
-
-    <header class="hero-section">
-        <div class="container hero-content">
             <div class="row">
                 <div class="col-lg-8">
-                    <h1>Navigating Complexity in Global Capital Markets.</h1>
-                    <p>We partner with visionary leaders to structure, strategize, and execute successful Initial Public Offerings across major exchanges.</p>
-                    <a href="#expertise" class="btn btn-mck">Our Approach</a>
+                    <p class="text-uppercase tracking-widest mb-3" style="letter-spacing: 2px;">Governance & Risk Advisory</p>
+                    <h1 class="display-4 text-white mb-4">港股 Pre-IPO 内控诊断服务方案</h1>
+                    [cite_start]<p class="lead mb-5">确保发行人内部控制制度符合香港联交所上市标准，构建稳健的合规治理体系 [cite: 1, 3]。</p>
+                    <div class="d-flex">
+                        <div class="me-4">
+                            <h4 class="mb-0">10-14 周</h4>
+                            [cite_start]<small class="opacity-75">预计交付周期 [cite: 34]</small>
+                        </div>
+                        <div class="border-start ps-4">
+                            <h4 class="mb-0">COSO</h4>
+                            [cite_start]<small class="opacity-75">国际标准架构 [cite: 8]</small>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </header>
 
-    <section class="section-padding" id="expertise">
-        <div class="container">
-            <div class="row align-items-center">
-                <div class="col-lg-5 mb-5 mb-lg-0">
-                    <div class="divider"></div>
-                    <h2 class="section-title">Strategic IPO Advisory</h2>
-                    <p class="lead text-muted">From pre-IPO preparation to the ringing of the bell, we provide end-to-end guidance.</p>
-                    <p>Going public is a transformative milestone. It requires more than just financial auditing; it demands a compelling equity story, rigorous corporate governance, and precise market timing.</p>
-                    <p>Our multidisciplinary teams integrate deep industry expertise with capital market fluency to maximize valuation and ensure long-term stability.</p>
-                    <br>
-                    <a href="#" style="font-weight: 700; border-bottom: 2px solid var(--mck-blue); padding-bottom: 2px;">Read the Full Report <i class="fas fa-arrow-right ms-2" style="font-size:0.8em;"></i></a>
-                </div>
-                <div class="col-lg-1"></div>
-                <div class="col-lg-6">
-                    <div class="row g-4">
-                        <div class="col-md-6">
-                            <div class="feature-card">
-                                <i class="fas fa-chart-line feature-icon"></i>
-                                <h5>Equity Story</h5>
-                                <p class="small text-muted mb-0">Crafting a narrative that resonates with institutional investors.</p>
-                            </div>
+    <section class="section-padding container">
+        <div class="row">
+            <div class="col-lg-4">
+                <h2 class="section-title">项目背景与目标</h2>
+                [cite_start]<p class="text-muted">在香港上市过程中，内部控制的有效性是监管关注的核心。我们的目标不仅是合规，更是优化 [cite: 3]。</p>
+            </div>
+            <div class="col-lg-8">
+                <div class="row g-4">
+                    <div class="col-md-4">
+                        <div class="p-4 border-bottom border-4 border-primary bg-light">
+                            <h5>识别风险</h5>
+                            [cite_start]<p class="small mb-0 text-muted">预先发现业务流程中的缺陷及合规“红线” [cite: 5]。</p>
                         </div>
-                        <div class="col-md-6">
-                            <div class="feature-card">
-                                <i class="fas fa-balance-scale feature-icon"></i>
-                                <h5>Valuation</h5>
-                                <p class="small text-muted mb-0">Data-driven modeling to determine optimal pricing corridors.</p>
-                            </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="p-4 border-bottom border-4 border-primary bg-light">
+                            <h5>合规整改</h5>
+                            [cite_start]<p class="small mb-0 text-muted">指导企业建立体系，确保通过外部审计 [cite: 6]。</p>
                         </div>
-                        <div class="col-md-6">
-                            <div class="feature-card">
-                                <i class="fas fa-globe feature-icon"></i>
-                                <h5>Global Reach</h5>
-                                <p class="small text-muted mb-0">Access to exchanges in HK, NASDAQ, and NYSE.</p>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="feature-card">
-                                <i class="fas fa-handshake feature-icon"></i>
-                                <h5>Investor Relations</h5>
-                                <p class="small text-muted mb-0">Building lasting trust with the shareholder base.</p>
-                            </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="p-4 border-bottom border-4 border-primary bg-light">
+                            <h5>优化治理</h5>
+                            [cite_start]<p class="small mb-0 text-muted">提升经营效率，为持续信息披露打下基础 [cite: 7]。</p>
                         </div>
                     </div>
                 </div>
@@ -303,120 +145,147 @@
         </div>
     </section>
 
-    <section class="stats-section" id="impact">
+    <section class="section-padding bg-light-gray">
         <div class="container">
-            <div class="row text-center">
-                <div class="col-md-4 mb-5 mb-md-0">
-                    <div class="stat-number">$50B+</div>
-                    <div class="stat-label">Capital Raised</div>
-                </div>
-                <div class="col-md-4 mb-5 mb-md-0">
-                    <div class="stat-number">120+</div>
-                    <div class="stat-label">Successful Listings</div>
-                </div>
-                <div class="col-md-4">
-                    <div class="stat-number">25%</div>
-                    <div class="stat-label">Avg. Day-1 Growth</div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="section-padding" style="background-color: var(--mck-gray);" id="insights">
-        <div class="container">
-            <div class="mb-5">
-                <h2 class="section-title">Latest Insights</h2>
-                <div class="divider"></div>
+            <div class="text-center mb-5">
+                <h2 class="section-title d-inline-block">全方位内控审视 (COSO 框架)</h2>
+                [cite_start]<p class="text-muted">涵盖公司层面控制、业务流程层面控制及 ITGC [cite: 9, 10, 24]。</p>
             </div>
             
             <div class="row g-4">
-                <div class="col-lg-4 col-md-6">
-                    <div class="feature-card p-0 overflow-hidden">
-                        <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Finance" class="img-fluid" style="height: 200px; width: 100%; object-fit: cover;">
-                        <div class="p-4">
-                            <p class="text-uppercase small text-muted fw-bold">Capital Markets</p>
-                            <h4>The 2025 Outlook for Tech IPOs</h4>
-                            <p class="text-muted mt-3">Why minimal volatility and AI adoption are driving a new wave of public listings.</p>
-                            <a href="#" class="btn-link mt-2 d-inline-block fw-bold text-decoration-none">Read Article &rarr;</a>
-                        </div>
+                <div class="col-md-3">
+                    <div class="cycle-card">
+                        <i class="fas fa-file-invoice-dollar cycle-icon"></i>
+                        <h6>销售与收款</h6>
+                        <ul class="list-unstyled small text-muted">
+                            [cite_start]<li>定价管理、信贷审批 [cite: 16]</li>
+                            [cite_start]<li>收入确认、回款核销 [cite: 16]</li>
+                        </ul>
                     </div>
                 </div>
-
-                <div class="col-lg-4 col-md-6">
-                    <div class="feature-card p-0 overflow-hidden">
-                        <img src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Meeting" class="img-fluid" style="height: 200px; width: 100%; object-fit: cover;">
-                        <div class="p-4">
-                            <p class="text-uppercase small text-muted fw-bold">Governance</p>
-                            <h4>Preparing the Boardroom</h4>
-                            <p class="text-muted mt-3">Structuring your board for public scrutiny: Composition, diversity, and risk management.</p>
-                            <a href="#" class="btn-link mt-2 d-inline-block fw-bold text-decoration-none">Read Article &rarr;</a>
-                        </div>
+                <div class="col-md-3">
+                    <div class="cycle-card">
+                        <i class="fas fa-shopping-cart cycle-icon"></i>
+                        <h6>采购与付款</h6>
+                        <ul class="list-unstyled small text-muted">
+                            [cite_start]<li>供应商准入、招标管理 [cite: 17]</li>
+                            [cite_start]<li>付款审批“五单合一” [cite: 17]</li>
+                        </ul>
                     </div>
                 </div>
-
-                <div class="col-lg-4 col-md-6">
-                    <div class="feature-card p-0 overflow-hidden">
-                        <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Strategy" class="img-fluid" style="height: 200px; width: 100%; object-fit: cover;">
-                        <div class="p-4">
-                            <p class="text-uppercase small text-muted fw-bold">Strategy</p>
-                            <h4>SPAC vs. Traditional IPO</h4>
-                            <p class="text-muted mt-3">Analyzing the shifts in regulatory frameworks and what it means for founders.</p>
-                            <a href="#" class="btn-link mt-2 d-inline-block fw-bold text-decoration-none">Read Article &rarr;</a>
-                        </div>
+                <div class="col-md-3">
+                    <div class="cycle-card">
+                        <i class="fas fa-wallet cycle-icon"></i>
+                        <h6>资金管理</h6>
+                        <ul class="list-unstyled small text-muted">
+                            [cite_start]<li>印鉴管理、网银钥匙权限 [cite: 22]</li>
+                            [cite_start]<li>大额资金调拨合规性 [cite: 22]</li>
+                        </ul>
                     </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="cycle-card">
+                        <i class="fas fa-users cycle-icon"></i>
+                        <h6>人力资源与薪酬</h6>
+                        <ul class="list-unstyled small text-muted">
+                            [cite_start]<li>招聘离职、考勤核算 [cite: 21]</li>
+                            [cite_start]<li>社保公积金合规 [cite: 21]</li>
+                        </ul>
+                    </div>
+                </div>
+                </div>
+            <div class="text-center mt-4">
+                [cite_start]<small class="text-muted">* 重点针对销售、采购、存货、费控、固资、人力、资金及财报八大循环进行穿行测试 [cite: 15-23]。</small>
+            </div>
+        </div>
+    </section>
+
+    <section class="section-padding container">
+        <div class="row">
+            <div class="col-lg-5">
+                <h2 class="section-title">执行阶段与方法论</h2>
+                [cite_start]<p>我们将项目分为三个核心阶段，确保从诊断到整改的闭环管理 [cite: 26, 27]。</p>
+                <div class="deliverable-item mt-5">
+                    <i class="fas fa-check-circle"></i>
+                    <div>
+                        [cite_start]<strong>核心交付物 [cite: 28]</strong>
+                        [cite_start]<p class="small text-muted">《内控差距分析报告》、《内控手册及 SOP》、《内控整改验证总结》 [cite: 27]。</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-7">
+                <div class="step-box">
+                    <div class="step-number">1</div>
+                    <h5>内控诊断（差距分析）</h5>
+                    [cite_start]<p class="small text-muted">现场访谈、穿行测试、识别内控缺陷。交付《内控差距分析报告》 [cite: 27]。</p>
+                </div>
+                <div class="step-box">
+                    <div class="step-number">2</div>
+                    <h5>体系搭建（修复）</h5>
+                    [cite_start]<p class="small text-muted">帮助企业制定整改计划，修订《内控手册》。交付《内控手册及流程制度》 [cite: 27]。</p>
+                </div>
+                <div class="step-box" style="margin-bottom: 0;">
+                    <div class="step-number">3</div>
+                    <h5>整改验证（后续）</h5>
+                    [cite_start]<p class="small text-muted">对整改流程进行有效性验证。交付《内控整改验证总结》 [cite: 27]。</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="section-padding text-center">
-        <div class="container">
-            <h2 class="mb-4">Ready to unlock value?</h2>
-            <p class="mb-5 text-muted mx-auto" style="max-width: 600px;">Connect with our IPO specialists to discuss your roadmap to the public markets.</p>
-            <a href="mailto:contact@hefund.com" class="btn btn-mck btn-mck-blue">Contact Us</a>
+    <section class="section-padding bg-light-gray">
+        <div class="container text-center">
+            <h2 class="section-title d-inline-block">报价方案与预算</h2>
+            <div class="table-responsive mt-4">
+                <table class="table pricing-table">
+                    <thead>
+                        <tr>
+                            <th>服务模块</th>
+                            <th>服务内容简述</th>
+                            <th>费用预算（参考）</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>模块 A：全面诊断</strong></td>
+                            [cite_start]<td>完成全业务线内控检查，出具诊断报告 [cite: 40]。</td>
+                            <td class="text-primary fw-bold">20 万人民币</td>
+                        </tr>
+                        <tr>
+                            <td><strong>模块 B：制度咨询</strong></td>
+                            [cite_start]<td>指导整改并协助编写所有内控 SOP 文档 [cite: 40]。</td>
+                            <td class="text-primary fw-bold">20 万人民币</td>
+                        </tr>
+                        <tr>
+                            <td><strong>模块 C：专项支持</strong></td>
+                            [cite_start]<td>协助回复保荐人有关内控的询问 [cite: 40]。</td>
+                            <td class="text-primary fw-bold">20 万人民币</td>
+                        </tr>
+                        <tr style="background: var(--mck-navy); color: white;">
+                            [cite_start]<td colspan="2" class="text-end"><strong>总计（全流程捆绑方案）[cite: 40]</strong></td>
+                            <td class="fw-bold">60 万人民币</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            [cite_start]<p class="small text-muted mt-3">最终报价受业务枢纽数量、行业及规模影响 [cite: 39]。</p>
         </div>
     </section>
 
-    <footer>
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-4 mb-4">
-                    <h5 style="font-family: 'Playfair Display', serif;">HEFUND IPO</h5>
-                    <p>Global financial advisory dedicated to sustainable growth and strategic capital allocation.</p>
-                </div>
-                <div class="col-lg-2 offset-lg-1 mb-4">
-                    <h5>About</h5>
-                    <ul class="list-unstyled">
-                        <li><a href="#">Our Firm</a></li>
-                        <li><a href="#">Leadership</a></li>
-                        <li><a href="#">Careers</a></li>
-                    </ul>
-                </div>
-                <div class="col-lg-2 mb-4">
-                    <h5>Services</h5>
-                    <ul class="list-unstyled">
-                        <li><a href="#">IPO Advisory</a></li>
-                        <li><a href="#">M&A</a></li>
-                        <li><a href="#">Restructuring</a></li>
-                    </ul>
-                </div>
-                <div class="col-lg-3 mb-4">
-                    <h5>Connect</h5>
-                    <ul class="list-unstyled">
-                        <li><a href="#">LinkedIn</a></li>
-                        <li><a href="#">Twitter / X</a></li>
-                        <li><a href="#">Subscribe</a></li>
-                    </ul>
-                </div>
+    <footer class="section-padding container text-center">
+        <h2 class="mb-4">为什么选择我们？</h2>
+        <div class="row g-4 text-start">
+            <div class="col-md-4 border-end">
+                <h6>资深团队</h6>
+                [cite_start]<p class="small">具备合规咨询背景及香港 IPO 成功案例经验 [cite: 42]。</p>
             </div>
-            <div class="row mt-5 pt-4 border-top border-secondary">
-                <div class="col-md-6">
-                    <p>&copy; 2024 Hefund Capital. All rights reserved.</p>
-                </div>
-                <div class="col-md-6 text-md-end">
-                    <a href="#" class="me-3">Privacy Policy</a>
-                    <a href="#">Terms of Use</a>
-                </div>
+            <div class="col-md-4 border-end">
+                <h6>落地目标</h6>
+                [cite_start]<p class="small">不仅发现问题，更提供可行的整改模板，拒绝“纸上谈兵” [cite: 43]。</p>
+            </div>
+            <div class="col-md-4">
+                <h6>无缝衔接</h6>
+                [cite_start]<p class="small">与保荐人及审计师保持沟通，确保工作结果直接被采信 [cite: 44]。</p>
             </div>
         </div>
     </footer>
